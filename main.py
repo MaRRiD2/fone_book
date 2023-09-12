@@ -132,3 +132,29 @@ def drawInterface():  # Функция рисования интерфейса �
     print(" [5] -- Delete Contacts")
     print("\n [0] -- Exit")
     print("=" * 26)
+    
+    
+    def main(file_name):  # Функция реализации главного меню
+    while True:
+        os.system("cls")
+        drawInterface()
+        userChoice = int(input("Input a Number for 1 to 5 or 0 for Exit: "))
+
+        if userChoice == 1:
+            showContacts(file_name)
+        elif userChoice == 2:
+            addContact(file_name)
+        elif userChoice == 3:
+            findContact(file_name)
+        elif userChoice == 4:
+            changeContact(file_name)
+        elif userChoice == 5:
+            deleteContact(file_name)
+        elif userChoice == 0:
+            print("Thank you!")
+            return
+
+
+path = "phonebook.txt"
+
+main(path)
