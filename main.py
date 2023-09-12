@@ -32,18 +32,18 @@ def printData(data):  # Функция вывода телефонной кни�
         print(f"{personID:>2}. {lastName:<15} {name:<10} -- {phone:<15}")
 
     print(splitLine)
-    
-    
-    def showContacts(fileName):  # Функция открытия телефонной книги
+
+
+def showContacts(fileName):  # Функция открытия телефонной книги
     os.system("cls")
     phoneBook = []
     with open(fileName, "r", encoding="UTF-8") as file:
         data = sorted(file.readlines())
         printData(data)
     input("\n--- press any key ---")
-    
-    
-    def addContact(fileName):  # Функция добавления нового контакта в телефонную книгу
+
+
+def addContact(fileName):  # Функция добавления нового контакта в телефонную книгу
     os.system("cls")
     with open(fileName, "a", encoding="UTF-8") as file:
         res = ""
@@ -73,9 +73,9 @@ def findContact(fileName):  # Функция поиска контактов в 
         print(f"There is no Contact with this Item '{target}'.")
 
     input("--- press any key ---")
-    
-    
-    def changeContact(fileName):  # Функция изменения информации в контакте
+
+
+def changeContact(fileName):  # Функция изменения информации в контакте
     os.system("cls")
     phoneBook = []
     with open(fileName, "r", encoding="UTF-8") as file:
@@ -132,9 +132,9 @@ def drawInterface():  # Функция рисования интерфейса �
     print(" [5] -- Delete Contacts")
     print("\n [0] -- Exit")
     print("=" * 26)
-    
-    
-    def main(file_name):  # Функция реализации главного меню
+
+
+def main(file_name):  # Функция реализации главного меню
     while True:
         os.system("cls")
         drawInterface()
