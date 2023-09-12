@@ -99,3 +99,36 @@ def findContact(fileName):  # Функция поиска контактов в 
                 input("\n--- press any key ---")
         else:
             return
+
+
+def deleteContact(fileName):  # Функция удаления контакта из телефонной книги
+    os.system("cls")
+    with open(fileName, "r+", encoding="UTF-8") as file:
+        data = sorted(file.readlines())
+        printData(data)
+
+        numberContact = int(
+            input("Input Number of Contact for deleting or 0 for return Main Menu: ")
+        )
+        if numberContact != 0:
+            print(f"Deleting record: {data[numberContact-1].rstrip().split(',')}\n")
+            data.pop(numberContact - 1)
+            with open(fileName, "w", encoding="UTF-8") as file:
+                file.write("".join(data))
+
+        else:
+            return
+
+    input("--- press any key ---")
+
+
+def drawInterface():  # Функция рисования интерфейса главного меню
+    print("#####   PHONE BOOK   #####")
+    print("=" * 26)
+    print(" [1] -- Show Contacts")
+    print(" [2] -- Add Contacts")
+    print(" [3] -- Find Contacts")
+    print(" [4] -- Change Contacts")
+    print(" [5] -- Delete Contacts")
+    print("\n [0] -- Exit")
+    print("=" * 26)
