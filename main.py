@@ -73,3 +73,29 @@ def findContact(fileName):  # Функция поиска контактов в 
         print(f"There is no Contact with this Item '{target}'.")
 
     input("--- press any key ---")
+    
+    
+    def changeContact(fileName):  # Функция изменения информации в контакте
+    os.system("cls")
+    phoneBook = []
+    with open(fileName, "r", encoding="UTF-8") as file:
+        data = sorted(file.readlines())
+        printData(data)
+
+        numberContact = int(
+            input("Input Number of Contact for changing or 0 for return Main Menu: ")
+        )
+        print(data[numberContact - 1].rstrip().split(","))
+        if numberContact != 0:
+            newLastName = input("Input new Lastname: ")
+            newName = input("Input new Name: ")
+            newPhone = input("Input new Phone: ")
+            data[numberContact - 1] = (
+                newLastName + "," + newName + "," + newPhone + "\n"
+            )
+            with open(fileName, "w", encoding="UTF-8") as file:
+                file.write("".join(data))
+                print("\nContact was successfully changed!")
+                input("\n--- press any key ---")
+        else:
+            return
