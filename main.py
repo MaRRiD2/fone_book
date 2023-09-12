@@ -54,3 +54,22 @@ def printData(data):  # Функция вывода телефонной кни�
         file.write(res + "\n")
 
     input("\nContact was successfully added!\n--- press any key ---")
+
+
+def findContact(fileName):  # Функция поиска контактов в телефонной книге
+    os.system("cls")
+    target = input("Input Item of Contact for searching: ")
+    result = []
+    with open(fileName, "r", encoding="UTF-8") as file:
+        data = file.readlines()
+        for person in data:
+            if target in person:
+                result.append(person)
+                # break
+
+    if len(result) != 0:
+        printData(result)
+    else:
+        print(f"There is no Contact with this Item '{target}'.")
+
+    input("--- press any key ---")
